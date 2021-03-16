@@ -22,11 +22,18 @@ export default ProductsPage
 
 export const query = graphql`
   {
-    allShopifyProduct(sort: { fields: [title] }, limit: 3) {
+    allShopifyProduct(sort: { fields: [title] }) {
       edges {
         node {
           title
+          shopifyId
+          description
           handle
+          priceRange {
+            minVariantPrice {
+              amount
+            }
+          }
         }
       }
     }

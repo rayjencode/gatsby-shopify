@@ -4,11 +4,25 @@ exports.createPages = async ({ graphql, actions }) => {
   // Query for all products in Shopify
   const result = await graphql(`
     query {
-      allShopifyProduct(sort: { fields: [title] }, limit: 3) {
+      allShopifyProduct(sort: { fields: [title] }) {
         edges {
           node {
             title
+            images {
+              originalSrc
+            }
+            shopifyId
             handle
+            description
+            availableForSale
+            priceRange {
+              maxVariantPrice {
+                amount
+              }
+              minVariantPrice {
+                amount
+              }
+            }
           }
         }
       }
@@ -26,13 +40,3 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 }
-
-// const path = require("path")
-
-// exports.onCreateWebpackConfig = ({ actions }) => {
-//   actions.setWebpackConfig({
-//     resolve: {
-//       modules: [path.resolve(__dirname, "src"), "node_modules"],
-//     },
-//   })
-// }
