@@ -9,18 +9,30 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             title
             images {
-              originalSrc
+              gatsbyImageData(width: 500, height: 500)
             }
             shopifyId
             handle
             description
             priceRangeV2 {
-              maxVariantPrice {
-                amount
-              }
               minVariantPrice {
                 amount
               }
+            }
+            productType
+            vendor
+            variants {
+              price
+              shopifyId
+              product {
+                images {
+                  gatsbyImageData(width: 200, height: 200)
+                }
+                title
+              }
+            }
+            options {
+              values
             }
           }
         }

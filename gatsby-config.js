@@ -16,8 +16,8 @@ module.exports = {
     // {
     //   resolve: `gatsby-source-shopify`,
     //   options: {
-    //     shopName: `costerdiamonds`,
-    //     accessToken: `1c34cd73929ade77c9f419d77088242f`,
+    //     shopName: process.env.GATSBY_SHOP_NAME,
+    //     accessToken: process.env.GATSBY_ACCESS_TOKEN,
     //     apiVersion: "2020-07",
     //     paginationSize: 50,
     //   },

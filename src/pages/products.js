@@ -25,20 +25,18 @@ export default ProductsPage
 
 export const query = graphql`
   {
-    allShopifyProduct(sort: { fields: [title] }) {
+    allShopifyProduct(sort: { fields: [publishedAt], order: DESC }) {
       edges {
         node {
           title
-          images {
-            originalSrc
+          featuredImage {
+            id
+            gatsbyImageData(width: 910, height: 910)
           }
           shopifyId
           handle
           description
           priceRangeV2 {
-            maxVariantPrice {
-              amount
-            }
             minVariantPrice {
               amount
             }
