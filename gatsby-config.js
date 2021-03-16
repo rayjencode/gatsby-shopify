@@ -13,23 +13,24 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-source-shopify`,
-      options: {
-        shopName: `costerdiamonds`,
-        accessToken: `1c34cd73929ade77c9f419d77088242f`,
-        apiVersion: "2020-07",
-        paginationSize: 100,
-      },
-    },
     // {
-    //   resolve: "gatsby-source-shopify-experimental",
+    //   resolve: `gatsby-source-shopify`,
     //   options: {
-    //     apiKey: process.env.SHOPIFY_ADMIN_API_KEY,
-    //     password: process.env.SHOPIFY_ADMIN_PASSWORD,
-    //     storeUrl: process.env.SHOPIFY_STORE_URL,
-    //     // downloadImages: true,
+    //     shopName: `costerdiamonds`,
+    //     accessToken: `1c34cd73929ade77c9f419d77088242f`,
+    //     apiVersion: "2020-07",
+    //     paginationSize: 50,
     //   },
     // },
+    {
+      resolve: "gatsby-source-shopify-experimental",
+      options: {
+        apiKey: process.env.SHOPIFY_ADMIN_API_KEY,
+        password: process.env.SHOPIFY_ADMIN_PASSWORD,
+        storeUrl: process.env.SHOPIFY_STORE_URL,
+        paginationSize: 50,
+        // downloadImages: true,
+      },
+    },
   ],
 }
